@@ -29,8 +29,8 @@ jobs:
         with:
           root_file: |
             resume.tex
-      - uses: actions/upload-artifact@v2
+      - run: ls
+      - uses: actions/upload-artifact@v4
         with:
-          name: resume
+          name: my-artifact
           path: resume.pdf
-         

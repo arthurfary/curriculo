@@ -15,7 +15,15 @@
     right={0.5in},
     bottom={0.4in}
 }
-\newcommand\clink[1]{{\usefont{T1}{lmtt}{m}{n} #1 }}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\newcommand\clink[1]{{\usefont{}{}{}{} }}
 \pagenumbering{gobble}
 \newenvironment{csection}[2]{
     \textbf{#1} 

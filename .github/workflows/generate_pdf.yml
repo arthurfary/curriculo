@@ -27,7 +27,9 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v4
         with:
-          root_file: resume.tex
+          root_file: |
+            resume.tex
+            resume.cls
       - name: Upload PDF file
         uses: actions/upload-artifact@v5
         with:

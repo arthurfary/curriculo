@@ -6,6 +6,8 @@ name: generate_pdf
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
+    tags:
+        - 'v*' 
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,8 +29,15 @@ jobs:
           root_file: |
             resume.tex
       - run: ls
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        if: github.ref_type == 'tag'
+      - name: Create Release
+        id: create_release
+        uses: comnoco/create-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          files: resume.pdf
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+          draft: false
+          prerelease: false

@@ -35,6 +35,8 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
+          body: |
+            Clique no arquivo PDF abaixo para baixar meu currículo atualizado!
           
       - name: Upload Release Asset
         id: upload-release-asset 

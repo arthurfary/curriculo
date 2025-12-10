@@ -29,10 +29,8 @@ jobs:
         with:
           root_file: |
             resume.tex
-            resume.cls
-      - name: Upload PDF file
-        uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v2
         with:
-          name: PDF
-          path: main.pdf
+          name: resume
+          path: resume.pdf
          
